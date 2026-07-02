@@ -26,6 +26,27 @@
     `;
   }
 
+  function diagnosticsTemplate(data) {
+    const env = data.env || {};
+    const checks = data.checks || {};
+    const envRows = Object.entries(env)
+      .map(([key, value]) => `<li><strong>${key}</strong>: ${value ? "set" : "missing"}</li>`)
+      .join("");
+    const checkRows = Object.entries(checks)
+      .map(([key, value]) => {
+        const detail = value.ok ? "ok" : value.error || "failed";
+        return `<li><strong>${key}</strong>: ${detail}</li>`;
+      })
+      .join("");
+    return `
+      <details class="diagnostics" open>
+        <summary>Backend diagnostics</summary>
+        <ul>${envRows}</ul>
+        <ul>${checkRows}</ul>
+      </details>
+    `;
+  }
+
   async function adminFetch(url, options = {}) {
     const response = await fetch(url, {
       ...options,
@@ -66,6 +87,13 @@
     password = value;
     window.sessionStorage.setItem("tremezzoplettAdminPassword", password);
     panel.hidden = false;
+    const diagnostics = await adminFetch("/api/admin-diagnostics");
+    const hasSupabaseError = Object.values(diagnostics.checks || {}).some((check) => !check.ok);
+    if (hasSupabaseError) {
+      list.innerHTML = diagnosticsTemplate(diagnostics);
+      setStatus("Password accepted, but the Supabase backend needs attention.", true);
+      return;
+    }
     await loadBlocks();
   }
 

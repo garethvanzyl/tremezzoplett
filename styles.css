@@ -834,6 +834,28 @@ textarea {
   gap: 12px;
 }
 
+.diagnostics {
+  padding: 18px;
+  border: 1px solid rgba(132, 99, 79, 0.24);
+  background: rgba(255, 250, 244, 0.7);
+}
+
+.diagnostics summary {
+  cursor: pointer;
+  color: var(--brown);
+  font-weight: 900;
+}
+
+.diagnostics ul {
+  margin: 14px 0 0;
+  padding-left: 1.2em;
+}
+
+.diagnostics li {
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+
 .blocked-item {
   padding: 16px;
   display: grid;
