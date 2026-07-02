@@ -5,7 +5,9 @@ module.exports = async function handler(req, res) {
     return json(res, 405, { error: "Method not allowed" });
   }
 
+  const { cleanEnv } = require("./_lib");
+
   return json(res, 200, {
-    turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || "",
+    turnstileSiteKey: cleanEnv(process.env.TURNSTILE_SITE_KEY),
   });
 };

@@ -30,9 +30,17 @@ function readJson(req) {
 }
 
 function requireEnv(name) {
-  const value = process.env[name];
+  const value = cleanEnv(process.env[name]);
   if (!value) throw new Error(`Missing ${name}`);
   return value;
+}
+
+function cleanEnv(value) {
+  const text = String(value || "").trim();
+  if ((text.startsWith('"') && text.endsWith('"')) || (text.startsWith("'") && text.endsWith("'"))) {
+    return text.slice(1, -1).trim();
+  }
+  return text;
 }
 
 function getClientIp(req) {
@@ -83,7 +91,7 @@ async function supabaseFetch(path, options = {}) {
 }
 
 async function verifyTurnstile(token, ip) {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
+  const secret = cleanEnv(process.env.TURNSTILE_SECRET_KEY);
   if (!secret) return { ok: true, skipped: true };
   if (!token) return { ok: false };
 
@@ -101,11 +109,11 @@ async function verifyTurnstile(token, ip) {
 }
 
 async function sendEmail({ subject, html, replyTo }) {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = cleanEnv(process.env.RESEND_API_KEY);
   if (!apiKey) return { skipped: true };
 
-  const from = process.env.BOOKING_EMAIL_FROM || "Tremezzo Plett <onboarding@resend.dev>";
-  const to = process.env.BOOKING_EMAIL_TO || "lauren@foxstreetcomms.co.za";
+  const from = cleanEnv(process.env.BOOKING_EMAIL_FROM) || "Tremezzo Plett <onboarding@resend.dev>";
+  const to = cleanEnv(process.env.BOOKING_EMAIL_TO) || "lauren@foxstreetcomms.co.za";
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -126,18 +134,20 @@ async function sendEmail({ subject, html, replyTo }) {
 }
 
 function adminAuthorized(req) {
-  const password = process.env.ADMIN_PASSWORD;
+  const password = cleanEnv(process.env.ADMIN_PASSWORD);
   if (!password) return false;
-  return req.headers["x-admin-password"] === password;
+  return String(req.headers["x-admin-password"] || "").trim() === password;
 }
 
 module.exports = {
   adminAuthorized,
+  cleanEnv,
   dateRangeIsValid,
   getClientIp,
   isEmail,
   isIsoDate,
   json,
+  requireEnv,
   readJson,
   sanitizeText,
   sendEmail,
