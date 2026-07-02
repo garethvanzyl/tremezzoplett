@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Availability Admin | Tremezzo Plett</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Tremezzo Plett">
+      <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
+        <div class="nav-links" aria-label="Main navigation">
+          <a href="index.html#home">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="rates-bookings.html">Rates</a>
+        </div>
+        <a class="nav-cta" href="rates-bookings.html">Book</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section section-cream admin-section">
+        <div class="section-inner narrow">
+          <p class="kicker">Availability admin</p>
+          <h1>Blocked dates</h1>
+          <p>
+            Add confirmed bookings or maintenance holds here. These dates will show as unavailable
+            on the public booking calendar.
+          </p>
+
+          <form class="admin-login" data-admin-login>
+            <label>
+              Admin password
+              <input name="password" type="password" autocomplete="current-password" required />
+            </label>
+            <button class="button button-gold" type="submit">Unlock</button>
+          </form>
+
+          <div class="admin-panel" data-admin-panel hidden>
+            <form class="admin-block-form" data-admin-block-form>
+              <div class="form-row two-fields">
+                <label>
+                  Start date
+                  <input name="startDate" type="date" required />
+                </label>
+                <label>
+                  End date
+                  <input name="endDate" type="date" required />
+                </label>
+              </div>
+              <label>
+                Note
+                <input name="note" type="text" placeholder="Confirmed booking, maintenance, owner stay..." />
+              </label>
+              <button class="button button-gold" type="submit">Add blocked dates</button>
+            </form>
+            <p class="form-status" data-admin-status role="status"></p>
+            <div class="blocked-list" data-blocked-list></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Tremezzo Plett</span>
+      <a href="rates-bookings.html">Rates</a>
+    </footer>
+    <script src="admin.js"></script>
+  </body>
+</html>

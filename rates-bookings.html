@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito+Sans:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -90,16 +91,70 @@
               beach access, sea views, two kitchens, spacious living areas and backup power.
             </p>
           </div>
-          <address class="booking-card">
-            <strong>Contact us</strong>
-            <span>5 Bull Street, Plettenberg Bay, Western Cape, South Africa</span>
-            <a href="tel:+27842064504">+27 84 206 4504 (Amy, SA)</a>
-            <a href="tel:+971551185233">+971 55 118 5233 (Lauren, UAE)</a>
-            <a href="mailto:bookings@tremezzoplett.co.za">bookings@tremezzoplett.co.za</a>
-            <a class="instagram-pill" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-              Tag us in your photos
-            </a>
-          </address>
+          <div class="booking-card">
+            <strong>Availability</strong>
+            <div class="calendar-status" data-calendar-status>Loading availability...</div>
+            <div class="booking-calendar" data-booking-calendar aria-label="Availability calendar"></div>
+            <div class="calendar-legend" aria-label="Calendar legend">
+              <span><i class="legend-available"></i>Available</span>
+              <span><i class="legend-selected"></i>Selected</span>
+              <span><i class="legend-blocked"></i>Unavailable</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-blue enquiry-section" aria-labelledby="enquiry-title">
+        <div class="section-inner">
+          <div class="enquiry-layout">
+            <div>
+              <h2 id="enquiry-title">Request your dates</h2>
+              <p class="wide-text left-text">
+                Select your preferred arrival and departure dates, then send your details. This is
+                an enquiry, not an instant confirmed booking. The host will respond within 24 hours.
+              </p>
+            </div>
+            <form class="booking-form" data-booking-form>
+              <input class="hidden-field" name="company" type="text" tabindex="-1" autocomplete="off" />
+              <div class="form-row two-fields">
+                <label>
+                  Arrival
+                  <input name="arrivalDate" type="date" required data-arrival-date />
+                </label>
+                <label>
+                  Departure
+                  <input name="departureDate" type="date" required data-departure-date />
+                </label>
+              </div>
+              <div class="form-row two-fields">
+                <label>
+                  Name
+                  <input name="name" type="text" autocomplete="name" required />
+                </label>
+                <label>
+                  Phone
+                  <input name="phone" type="tel" autocomplete="tel" required />
+                </label>
+              </div>
+              <div class="form-row two-fields">
+                <label>
+                  Email
+                  <input name="email" type="email" autocomplete="email" required />
+                </label>
+                <label>
+                  Guests
+                  <input name="guests" type="number" min="1" max="10" value="2" required />
+                </label>
+              </div>
+              <label>
+                Message
+                <textarea name="message" rows="5" placeholder="Tell us anything useful about your stay."></textarea>
+              </label>
+              <div class="turnstile-holder" data-turnstile></div>
+              <button class="button button-gold" type="submit">Send request</button>
+              <p class="form-status" data-form-status role="status"></p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
@@ -108,5 +163,6 @@
       <span>Tremezzo Plett</span>
       <a href="index.html">Home</a>
     </footer>
+    <script src="booking.js"></script>
   </body>
 </html>

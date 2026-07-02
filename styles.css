@@ -616,6 +616,251 @@ cite {
   width: max-content;
 }
 
+.booking-calendar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.calendar-status,
+.calendar-legend,
+.form-status,
+.empty-state {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.calendar-month {
+  min-width: 0;
+}
+
+.calendar-month h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.calendar-day-name,
+.calendar-empty,
+.calendar-day {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.calendar-day-name {
+  aspect-ratio: auto;
+  color: var(--blue-dark);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.calendar-day {
+  border: 1px solid rgba(132, 99, 79, 0.18);
+  background: rgba(255, 250, 244, 0.7);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  border-color: var(--gold);
+}
+
+.calendar-day.is-selected {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--white);
+}
+
+.calendar-day.is-blocked {
+  background: rgba(132, 99, 79, 0.18);
+  color: rgba(89, 72, 61, 0.45);
+}
+
+.calendar-day.is-disabled {
+  cursor: not-allowed;
+}
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.calendar-legend i {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  border: 1px solid rgba(132, 99, 79, 0.25);
+}
+
+.legend-available {
+  background: rgba(255, 250, 244, 0.7);
+}
+
+.legend-selected {
+  background: var(--gold);
+}
+
+.legend-blocked {
+  background: rgba(132, 99, 79, 0.18);
+}
+
+.enquiry-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
+  gap: clamp(34px, 8vw, 92px);
+  align-items: start;
+}
+
+.left-text {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.booking-form,
+.admin-login,
+.admin-block-form {
+  display: grid;
+  gap: 18px;
+}
+
+.booking-form {
+  padding: 30px;
+  border: 1px solid rgba(255, 250, 244, 0.5);
+  background: rgba(255, 250, 244, 0.1);
+}
+
+.form-row {
+  display: grid;
+  gap: 16px;
+}
+
+.two-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(132, 99, 79, 0.28);
+  border-radius: 0;
+  padding: 13px 14px;
+  background: rgba(255, 250, 244, 0.95);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hidden-field {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.turnstile-holder:empty {
+  display: none;
+}
+
+.form-status {
+  margin: 0;
+  color: var(--white);
+}
+
+.form-status.is-error {
+  color: #ffe7dd;
+}
+
+.admin-section h1 {
+  margin: 0 0 20px;
+  color: var(--brown);
+  font-size: clamp(54px, 9vw, 90px);
+  overflow-wrap: anywhere;
+}
+
+.admin-section p {
+  font-weight: 800;
+}
+
+.admin-login,
+.admin-block-form,
+.blocked-list {
+  margin-top: 28px;
+}
+
+.admin-panel[hidden] {
+  display: none;
+}
+
+.blocked-list {
+  display: grid;
+  gap: 12px;
+}
+
+.blocked-item {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid rgba(132, 99, 79, 0.24);
+  background: rgba(255, 250, 244, 0.66);
+}
+
+.blocked-item strong,
+.blocked-item span {
+  display: block;
+}
+
+.blocked-item span {
+  color: var(--brown);
+  font-weight: 800;
+}
+
+.button-small {
+  min-height: 42px;
+  padding: 9px 14px;
+  border-color: rgba(132, 99, 79, 0.4);
+  color: var(--brown);
+}
+
 .gallery-heading {
   margin-bottom: 44px;
   display: grid;
@@ -733,7 +978,10 @@ cite {
   .review-grid,
   .contact-grid,
   .rate-grid,
-  .gallery-heading {
+  .gallery-heading,
+  .booking-calendar,
+  .enquiry-layout,
+  .two-fields {
     grid-template-columns: 1fr;
   }
 
@@ -767,6 +1015,11 @@ cite {
 
   .contact-grid {
     gap: 20px;
+  }
+
+  .booking-form,
+  .booking-card {
+    padding: 22px;
   }
 
   .rate-card {
@@ -819,5 +1072,9 @@ cite {
   .contact-card,
   .social-card {
     padding: 22px;
+  }
+
+  .blocked-item {
+    grid-template-columns: 1fr;
   }
 }
