@@ -29,6 +29,7 @@ BOOKING_EMAIL_FROM=Tremezzo Plett <bookings@your-verified-domain.com>
 TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 ADMIN_PASSWORD=
+CRON_SECRET=
 ```
 
 Notes:
@@ -38,3 +39,4 @@ Notes:
 - The admin page is `/admin.html`. It uses `ADMIN_PASSWORD` to add or remove blocked date ranges.
 - The public calendar reads blocked dates from Supabase through `/api/availability`.
 - The booking form posts to `/api/booking-request`, validates Cloudflare Turnstile server-side when configured, stores the enquiry in Supabase, and emails the host.
+- Vercel Cron calls `/api/keepalive` daily at 08:00 UTC to make a small authenticated Supabase query. Set `CRON_SECRET` in Vercel so cron requests include the matching `Authorization: Bearer ...` header.
