@@ -29,11 +29,11 @@
     <main>
       <section class="section section-cream admin-section">
         <div class="section-inner narrow">
-          <p class="kicker">Availability admin</p>
-          <h1>Blocked dates</h1>
+          <p class="kicker">Website admin</p>
+          <h1>Content &amp; blocked dates</h1>
           <p>
-            Add confirmed bookings or maintenance holds here. These dates will show as unavailable
-            on the public booking calendar.
+            Update page text and add confirmed bookings or maintenance holds. Blocked dates show as
+            unavailable on the public booking calendar.
           </p>
 
           <form class="admin-login" data-admin-login>
@@ -46,6 +46,24 @@
           <p class="form-status admin-status" data-admin-status role="status"></p>
 
           <div class="admin-panel" data-admin-panel hidden>
+            <div class="admin-tabs" role="tablist" aria-label="Admin tools">
+              <button class="admin-tab is-active" type="button" data-admin-tab="content">Page text</button>
+              <button class="admin-tab" type="button" data-admin-tab="dates">Blocked dates</button>
+            </div>
+
+            <section class="admin-tool is-active" data-admin-tool="content" aria-label="Page text editor">
+              <div class="admin-tool-heading">
+                <h2>Page text</h2>
+                <p>Edit the live copy shown on the homepage, rates page and gallery page.</p>
+              </div>
+              <form class="content-editor" data-content-editor></form>
+            </section>
+
+            <section class="admin-tool" data-admin-tool="dates" aria-label="Blocked dates editor">
+              <div class="admin-tool-heading">
+                <h2>Blocked dates</h2>
+                <p>Add confirmed bookings, maintenance holds or owner stays.</p>
+              </div>
             <form class="admin-block-form" data-admin-block-form>
               <div class="form-row two-fields">
                 <label>
@@ -64,6 +82,7 @@
               <button class="button button-gold" type="submit">Add blocked dates</button>
             </form>
             <div class="blocked-list" data-blocked-list></div>
+            </section>
           </div>
         </div>
       </section>

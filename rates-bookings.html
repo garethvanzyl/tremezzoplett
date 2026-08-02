@@ -17,7 +17,7 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="rates">
     <header class="site-header" aria-label="Tremezzo Plett">
       <nav class="nav">
         <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
@@ -43,8 +43,8 @@
 
       <section class="section section-cream rates-intro">
         <div class="section-inner narrow">
-          <h2>Our rates per season</h2>
-          <p>
+          <h2 data-content="rates.intro.heading">Our rates per season</h2>
+          <p data-content="rates.intro.body">
             The price may vary according to length of stay. Tremezzo Villa is a non-smoking
             property, quiet hours run from 22:00 to 07:00, and pets are welcome on request.
           </p>
@@ -83,9 +83,9 @@
       <section id="contact" class="section section-cream booking-panel">
         <div class="section-grid two-column">
           <div class="copy-block">
-            <p class="kicker">Ready to make Tremezzo yours?</p>
-            <h2>We would love to host you.</h2>
-            <p>
+            <p class="kicker" data-content="rates.booking.kicker">Ready to make Tremezzo yours?</p>
+            <h2 data-content="rates.booking.heading">We would love to host you.</h2>
+            <p data-content="rates.booking.body">
               Please reach out via WhatsApp or email to enquire about available dates and make a booking.
               The home accommodates up to 10 guests across five en-suite bedrooms, with direct
               beach access, sea views, two kitchens, spacious living areas and backup power.
@@ -109,7 +109,7 @@
           <div class="enquiry-layout">
             <div>
               <h2 id="enquiry-title">Request your dates</h2>
-              <p class="wide-text left-text">
+              <p class="wide-text left-text" data-content="rates.enquiry.body">
                 Select your preferred arrival and departure dates, then send your details. This is
                 an enquiry, not an instant confirmed booking. The host will respond within 24 hours.
               </p>
@@ -163,6 +163,7 @@
       <span>Tremezzo Plett</span>
       <a href="index.html">Home</a>
     </footer>
+    <script src="content.js"></script>
     <script src="booking.js"></script>
   </body>
 </html>

@@ -4,6 +4,9 @@
   const blockForm = document.querySelector("[data-admin-block-form]");
   const list = document.querySelector("[data-blocked-list]");
   const status = document.querySelector("[data-admin-status]");
+  const contentEditor = document.querySelector("[data-content-editor]");
+  const tabs = document.querySelectorAll("[data-admin-tab]");
+  const tools = document.querySelectorAll("[data-admin-tool]");
   if (!loginForm || !panel || !blockForm || !list) return;
 
   let password = "";
@@ -47,6 +50,45 @@
     `;
   }
 
+  function pageLabel(page) {
+    const labels = {
+      contact: "Contact",
+      gallery: "Gallery",
+      home: "Homepage",
+      rates: "Rates & bookings",
+    };
+    return labels[page] || page;
+  }
+
+  function editorFieldTemplate(block) {
+    const tag = block.kind === "textarea" || block.kind === "list" ? "textarea" : "input";
+    const hint = block.kind === "list" ? '<small>One list item per line.</small>' : "";
+    if (tag === "textarea") {
+      return `
+        <label>
+          ${block.label}
+          <textarea name="${block.key}" rows="${block.kind === "list" ? 7 : 4}">${escapeHtml(block.value || "")}</textarea>
+          ${hint}
+        </label>
+      `;
+    }
+    return `
+      <label>
+        ${block.label}
+        <input name="${block.key}" type="text" value="${escapeHtml(block.value || "")}" />
+      </label>
+    `;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
   async function adminFetch(url, options = {}) {
     const response = await fetch(url, {
       ...options,
@@ -83,6 +125,35 @@
     });
   }
 
+  async function loadContent() {
+    if (!contentEditor) return;
+    const data = await adminFetch("/api/admin-content");
+    const blocks = data.blocks || [];
+    const groups = blocks.reduce((acc, block) => {
+      const page = block.page || "other";
+      acc[page] = acc[page] || [];
+      acc[page].push(block);
+      return acc;
+    }, {});
+
+    contentEditor.innerHTML = Object.entries(groups)
+      .map(
+        ([page, pageBlocks]) => `
+          <fieldset class="content-group">
+            <legend>${pageLabel(page)}</legend>
+            ${pageBlocks.map(editorFieldTemplate).join("")}
+          </fieldset>
+        `
+      )
+      .join("");
+
+    const submit = document.createElement("button");
+    submit.className = "button button-gold";
+    submit.type = "submit";
+    submit.textContent = "Save page text";
+    contentEditor.appendChild(submit);
+  }
+
   async function unlock(value) {
     password = value;
     const diagnostics = await adminFetch("/api/admin-diagnostics");
@@ -94,6 +165,7 @@
       return;
     }
     await loadBlocks();
+    await loadContent();
   }
 
   loginForm.addEventListener("submit", async (event) => {
@@ -123,6 +195,33 @@
     } catch (error) {
       setStatus(error.message, true);
     }
+  });
+
+  if (contentEditor) {
+    contentEditor.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(contentEditor);
+      const blocks = Array.from(formData.entries()).map(([key, value]) => ({ key, value }));
+      setStatus("Saving page text...");
+      try {
+        await adminFetch("/api/admin-content", {
+          method: "PUT",
+          body: JSON.stringify({ blocks }),
+        });
+        setStatus("Page text saved.");
+      } catch (error) {
+        setStatus(error.message, true);
+      }
+    });
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.adminTab;
+      tabs.forEach((item) => item.classList.toggle("is-active", item === tab));
+      tools.forEach((tool) => tool.classList.toggle("is-active", tool.dataset.adminTool === target));
+      setStatus("");
+    });
   });
 
 })();

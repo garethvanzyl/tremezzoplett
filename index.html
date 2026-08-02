@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="home">
     <header class="site-header" aria-label="Tremezzo Plett">
       <nav class="nav">
         <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
@@ -44,9 +44,9 @@
       <section id="home" class="intro section section-cream">
         <div class="section-grid two-column">
           <div class="copy-block">
-            <p class="kicker">Garden Route coastal living</p>
-            <h2>Your seaside escape in Plettenberg Bay</h2>
-            <p>
+          <p class="kicker" data-content="home.intro.kicker">Garden Route coastal living</p>
+          <h2 data-content="home.intro.heading">Your seaside escape in Plettenberg Bay</h2>
+          <p data-content="home.intro.body">
               Welcome to Tremezzo Villa, a spacious beachfront home in the heart of Central
               Beach. This recently renovated 735m² retreat offers direct beach access, sweeping
               sea views, generous living areas and refined comfort for relaxed family holidays.
@@ -60,8 +60,8 @@
 
       <section class="section section-blue centered" aria-labelledby="rest-title">
         <div class="section-inner">
-          <h2 id="rest-title">A home designed for rest, beauty &amp; togetherness</h2>
-          <p class="wide-text">
+          <h2 id="rest-title" data-content="home.rest.heading">A home designed for rest, beauty &amp; togetherness</h2>
+          <p class="wide-text" data-content="home.rest.body">
             Tremezzo sleeps up to 10 guests across five stylish en-suite bedrooms, with king-size
             beds or twin singles. The home includes two fully equipped kitchens, open-plan living
             and dining spaces, indoor and outdoor fireplaces, a games room, Wi-Fi, DSTV, gas braai
@@ -77,8 +77,8 @@
       <section id="amenities" class="section section-cream amenities">
         <div class="section-grid two-column reverse-mobile">
           <div class="copy-block">
-            <p class="kicker">At Tremezzo Plett, you can enjoy</p>
-            <ul class="feature-list">
+            <p class="kicker" data-content="home.amenities.kicker">At Tremezzo Plett, you can enjoy</p>
+            <ul class="feature-list" data-content="home.amenities.list" data-content-type="list">
               <li>Direct beach access to a beautiful cove</li>
               <li>Five en-suite bedrooms with king-size beds or twin singles</li>
               <li>Sea-facing main bedroom with enclosed glass patio</li>
@@ -114,8 +114,8 @@
 
       <section id="location" class="section section-blue centered location" aria-labelledby="location-title">
         <div class="section-inner">
-          <h2 id="location-title">Situated on the most desired stretch of Central Beach</h2>
-          <p class="wide-text">
+          <h2 id="location-title" data-content="home.location.heading">Situated on the most desired stretch of Central Beach</h2>
+          <p class="wide-text" data-content="home.location.body">
             Tremezzo Plett offers unrivalled access to Central Beach, with sweeping views of the
             Indian Ocean and Outeniqua Mountains. Walk out the door and onto the sand, then explore
             coastal paths, nature, restaurants and the best of Plettenberg Bay from your doorstep.
@@ -134,37 +134,37 @@
         <img class="reviews-bg" src="assets/terrace.png" alt="" aria-hidden="true" />
         <div class="reviews-overlay"></div>
         <div class="reviews-content">
-          <h2 id="reviews-title">What Booking.com guests say</h2>
+          <h2 id="reviews-title" data-content="home.reviews.heading">What Booking.com guests say</h2>
           <div class="review-grid">
             <blockquote>
               <p>
-                Loved the superb position close to the beach, restaurants and shops, with the space and amenities needed for a great holiday.
+                <span data-content="home.review.1.text">Loved the superb position close to the beach, restaurants and shops, with the space and amenities needed for a great holiday.</span>
               </p>
-              <cite>Monika, Switzerland</cite>
+              <cite data-content="home.review.1.cite">Monika, Switzerland</cite>
             </blockquote>
             <blockquote>
               <p>
-                Had a wonderful stay and found the managing agents helpful, attentive and easy to deal with.
+                <span data-content="home.review.2.text">Had a wonderful stay and found the managing agents helpful, attentive and easy to deal with.</span>
               </p>
-              <cite>Bruce, South Africa</cite>
+              <cite data-content="home.review.2.cite">Bruce, South Africa</cite>
             </blockquote>
             <blockquote>
               <p>
-                Described the home as beautiful, thoughtfully prepared and perfectly located for a family holiday.
+                <span data-content="home.review.3.text">Described the home as beautiful, thoughtfully prepared and perfectly located for a family holiday.</span>
               </p>
-              <cite>Tamlyn, Switzerland</cite>
+              <cite data-content="home.review.3.cite">Tamlyn, Switzerland</cite>
             </blockquote>
             <blockquote>
               <p>
-                Appreciated the large rooms, multiple sitting areas, well-stocked kitchen and family-friendly facilities.
+                <span data-content="home.review.4.text">Appreciated the large rooms, multiple sitting areas, well-stocked kitchen and family-friendly facilities.</span>
               </p>
-              <cite>Marguerite, Canada</cite>
+              <cite data-content="home.review.4.cite">Marguerite, Canada</cite>
             </blockquote>
             <blockquote>
               <p>
-                Highlighted the direct position on Wedge Beach, private beach path, secure parking and helpful hosts.
+                <span data-content="home.review.5.text">Highlighted the direct position on Wedge Beach, private beach path, secure parking and helpful hosts.</span>
               </p>
-              <cite>Simon, South Africa</cite>
+              <cite data-content="home.review.5.cite">Simon, South Africa</cite>
             </blockquote>
           </div>
         </div>
@@ -172,9 +172,9 @@
 
       <section id="contact" class="section section-blue contact" aria-labelledby="contact-title">
         <div class="section-inner">
-          <h2 id="contact-title">Is Tremezzo Plett calling your name?</h2>
-          <p class="subheading">We would love to host you.</p>
-          <p class="wide-text">
+          <h2 id="contact-title" data-content="contact.heading">Is Tremezzo Plett calling your name?</h2>
+          <p class="subheading" data-content="contact.subheading">We would love to host you.</p>
+          <p class="wide-text" data-content="contact.body">
             Please reach out via WhatsApp or email to enquire about available dates, rates and bookings.
           </p>
           <div class="contact-grid">
@@ -202,6 +202,7 @@
       <a href="#top">Back to top</a>
     </footer>
 
+    <script src="content.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

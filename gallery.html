@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="gallery">
     <header class="site-header" aria-label="Tremezzo Plett">
       <nav class="nav">
         <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
@@ -43,7 +43,7 @@
       <section class="section section-cream gallery-page">
         <div class="section-inner">
           <div class="gallery-heading">
-            <h2>Spaces for slow mornings, beach days and long summer evenings</h2>
+            <h2 data-content="gallery.heading">Spaces for slow mornings, beach days and long summer evenings</h2>
             <a class="button button-gold" href="rates-bookings.html">Make a reservation</a>
           </div>
           <div class="masonry-gallery" aria-label="Tremezzo Plett photo gallery">
@@ -93,9 +93,9 @@
 
       <section id="contact" class="section section-blue contact">
         <div class="section-inner">
-          <h2>Ready to make Tremezzo yours?</h2>
-          <p class="subheading">We would love to host you.</p>
-          <p class="wide-text">
+          <h2 data-content="contact.heading">Ready to make Tremezzo yours?</h2>
+          <p class="subheading" data-content="contact.subheading">We would love to host you.</p>
+          <p class="wide-text" data-content="contact.body">
             Please reach out via WhatsApp or email to enquire about available dates, rates and bookings.
           </p>
           <div class="contact-grid">
@@ -121,5 +121,6 @@
       <span>Tremezzo Plett</span>
       <a href="index.html">Home</a>
     </footer>
+    <script src="content.js"></script>
   </body>
 </html>

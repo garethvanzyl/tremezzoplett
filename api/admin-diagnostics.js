@@ -38,5 +38,14 @@ module.exports = async function handler(req, res) {
     checks.bookingRequests = { ok: false, error: error.message };
   }
 
+  try {
+    requireEnv("SUPABASE_URL");
+    requireEnv("SUPABASE_SERVICE_ROLE_KEY");
+    const contentBlocks = await supabaseFetch("content_blocks?select=key&limit=1");
+    checks.contentBlocks = { ok: true, count: contentBlocks.length };
+  } catch (error) {
+    checks.contentBlocks = { ok: false, error: error.message };
+  }
+
   return json(res, 200, { ok: true, env, checks });
 };

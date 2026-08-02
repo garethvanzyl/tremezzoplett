@@ -834,6 +834,83 @@ textarea {
   display: none;
 }
 
+.admin-tabs {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-tab {
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 1px solid rgba(132, 99, 79, 0.28);
+  background: rgba(255, 250, 244, 0.72);
+  color: var(--brown);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-tab.is-active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--white);
+}
+
+.admin-tool {
+  display: none;
+  margin-top: 28px;
+}
+
+.admin-tool.is-active {
+  display: block;
+}
+
+.admin-tool-heading h2 {
+  margin-bottom: 8px;
+  color: var(--brown);
+  font-size: clamp(38px, 5vw, 54px);
+}
+
+.admin-tool-heading p {
+  margin: 0;
+}
+
+.content-editor {
+  margin-top: 28px;
+  display: grid;
+  gap: 24px;
+}
+
+.content-group {
+  margin: 0;
+  padding: 22px;
+  display: grid;
+  gap: 18px;
+  border: 1px solid rgba(132, 99, 79, 0.24);
+  background: rgba(255, 250, 244, 0.58);
+}
+
+.content-group legend {
+  padding: 0 8px;
+  color: var(--brown);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.content-group small {
+  color: var(--brown);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .blocked-list {
   display: grid;
   gap: 12px;
