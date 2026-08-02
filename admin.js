@@ -10,11 +10,18 @@
   if (!loginForm || !panel || !blockForm || !list) return;
 
   let password = "";
+  let contentStatus;
 
   function setStatus(message, isError) {
     if (!status) return;
     status.textContent = message || "";
     status.classList.toggle("is-error", Boolean(isError));
+  }
+
+  function setContentStatus(message, isError) {
+    if (!contentStatus) return;
+    contentStatus.textContent = message || "";
+    contentStatus.classList.toggle("is-error", Boolean(isError));
   }
 
   function rowTemplate(item) {
@@ -147,11 +154,18 @@
       )
       .join("");
 
+    const saveBar = document.createElement("div");
+    saveBar.className = "content-save-bar";
     const submit = document.createElement("button");
     submit.className = "button button-gold";
     submit.type = "submit";
     submit.textContent = "Save page text";
-    contentEditor.appendChild(submit);
+    contentStatus = document.createElement("p");
+    contentStatus.className = "form-status content-status";
+    contentStatus.setAttribute("role", "status");
+    saveBar.appendChild(submit);
+    saveBar.appendChild(contentStatus);
+    contentEditor.appendChild(saveBar);
   }
 
   async function unlock(value) {
@@ -203,14 +217,22 @@
       const formData = new FormData(contentEditor);
       const blocks = Array.from(formData.entries()).map(([key, value]) => ({ key, value }));
       setStatus("Saving page text...");
+      setContentStatus("Saving...");
+      const submit = contentEditor.querySelector('button[type="submit"]');
+      if (submit) submit.disabled = true;
       try {
         await adminFetch("/api/admin-content", {
           method: "PUT",
           body: JSON.stringify({ blocks }),
         });
+        const savedAt = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         setStatus("Page text saved.");
+        setContentStatus(`Saved at ${savedAt}. Refresh the public page to see the update.`);
       } catch (error) {
         setStatus(error.message, true);
+        setContentStatus(error.message, true);
+      } finally {
+        if (submit) submit.disabled = false;
       }
     });
   }

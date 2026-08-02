@@ -886,6 +886,30 @@ textarea {
   gap: 24px;
 }
 
+.content-save-bar {
+  position: sticky;
+  bottom: 18px;
+  z-index: 4;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid rgba(132, 99, 79, 0.24);
+  background: rgba(243, 238, 231, 0.94);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.content-save-bar .button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.content-status {
+  color: var(--brown);
+}
+
 .content-group {
   margin: 0;
   padding: 22px;
@@ -1179,6 +1203,10 @@ textarea {
   }
 
   .blocked-item {
+    grid-template-columns: 1fr;
+  }
+
+  .content-save-bar {
     grid-template-columns: 1fr;
   }
 }
