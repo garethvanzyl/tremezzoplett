@@ -48,6 +48,7 @@ module.exports = async function handler(req, res) {
 
     return json(res, 405, { error: "Method not allowed" });
   } catch (error) {
+    console.error("admin_blocked_dates_error", error.message);
     const setupRequired = error.message && error.message.startsWith("Missing ");
     return json(res, setupRequired ? 503 : 500, {
       error: setupRequired

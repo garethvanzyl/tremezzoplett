@@ -92,6 +92,7 @@ module.exports = async function handler(req, res) {
       message: "Thanks, your request has been sent. The host will respond within 24 hours.",
     });
   } catch (error) {
+    console.error("booking_request_error", error.message);
     const setupRequired = error.message && error.message.startsWith("Missing ");
     return json(res, setupRequired ? 503 : 500, {
       error: setupRequired
