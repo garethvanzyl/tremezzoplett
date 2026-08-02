@@ -825,6 +825,11 @@ textarea {
   margin-top: 28px;
 }
 
+.admin-status {
+  margin-top: 18px;
+  color: var(--brown);
+}
+
 .admin-panel[hidden] {
   display: none;
 }

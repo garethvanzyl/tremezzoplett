@@ -6,7 +6,7 @@
   const status = document.querySelector("[data-admin-status]");
   if (!loginForm || !panel || !blockForm || !list) return;
 
-  let password = window.sessionStorage.getItem("tremezzoplettAdminPassword") || "";
+  let password = "";
 
   function setStatus(message, isError) {
     if (!status) return;
@@ -85,9 +85,8 @@
 
   async function unlock(value) {
     password = value;
-    window.sessionStorage.setItem("tremezzoplettAdminPassword", password);
-    panel.hidden = false;
     const diagnostics = await adminFetch("/api/admin-diagnostics");
+    panel.hidden = false;
     const hasSupabaseError = Object.values(diagnostics.checks || {}).some((check) => !check.ok);
     if (hasSupabaseError) {
       list.innerHTML = diagnosticsTemplate(diagnostics);
@@ -126,10 +125,4 @@
     }
   });
 
-  if (password) {
-    unlock(password).catch(() => {
-      panel.hidden = true;
-      window.sessionStorage.removeItem("tremezzoplettAdminPassword");
-    });
-  }
 })();
