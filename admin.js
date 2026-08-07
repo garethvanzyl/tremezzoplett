@@ -62,7 +62,12 @@
       contact: "Contact",
       gallery: "Gallery",
       home: "Homepage",
+      booking: "Booking form",
+      footer: "Footer",
+      nav: "Navigation",
+      ratesCards: "Rates cards",
       rates: "Rates & bookings",
+      site: "Sitewide",
     };
     return labels[page] || page;
   }

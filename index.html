@@ -19,14 +19,14 @@
   <body data-page="home">
     <header class="site-header" aria-label="Tremezzo Plett">
       <nav class="nav">
-        <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
+        <a class="brand" href="index.html" aria-label="Tremezzo Plett home" data-content="site.brand">Tremezzo</a>
         <div class="nav-links" aria-label="Main navigation">
-          <a href="index.html#home">Home</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="rates-bookings.html">Rates</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#home" data-content="nav.home">Home</a>
+          <a href="gallery.html" data-content="nav.gallery">Gallery</a>
+          <a href="rates-bookings.html" data-content="nav.rates">Rates</a>
+          <a href="#contact" data-content="nav.contact">Contact</a>
         </div>
-        <a class="nav-cta" href="rates-bookings.html">Book</a>
+        <a class="nav-cta" href="rates-bookings.html" data-content="nav.book">Book</a>
       </nav>
     </header>
 
@@ -34,10 +34,10 @@
       <section class="hero" aria-labelledby="hero-title">
         <img class="hero-image" src="assets/header-terrace.jpg" alt="Sunlit terrace loungers overlooking the beach" />
         <div class="hero-panel">
-          <p class="eyebrow">Welcome to</p>
-          <h1 id="hero-title">Tremezzo</h1>
-          <p class="hero-place">Plettenberg Bay</p>
-          <a class="button button-gold" href="rates-bookings.html">Rates &amp; bookings</a>
+          <p class="eyebrow" data-content="home.hero.eyebrow">Welcome to</p>
+          <h1 id="hero-title" data-content="home.hero.title">Tremezzo</h1>
+          <p class="hero-place" data-content="home.hero.place">Plettenberg Bay</p>
+          <a class="button button-gold" href="rates-bookings.html" data-content="home.hero.button">Rates &amp; bookings</a>
         </div>
       </section>
 
@@ -101,12 +101,12 @@
         <div class="gallery">
           <figure>
             <img src="assets/pool.png" alt="Private pool courtyard shaded by flowering trees" />
-            <figcaption>Enjoy a splash in the private pool after a hot day at the beach.</figcaption>
+            <figcaption data-content="home.photo.1.caption">Enjoy a splash in the private pool after a hot day at the beach.</figcaption>
           </figure>
           <figure>
             <img src="assets/booking-bathroom-vanity.jpg" alt="Patterned en-suite bathroom vanity at Tremezzo Villa" />
             <figcaption>
-              Fresh en-suite bathrooms with patterned tile, generous vanities and views toward the sea.
+              <span data-content="home.photo.2.caption">Fresh en-suite bathrooms with patterned tile, generous vanities and views toward the sea.</span>
             </figcaption>
           </figure>
         </div>
@@ -121,10 +121,10 @@
             coastal paths, nature, restaurants and the best of Plettenberg Bay from your doorstep.
           </p>
           <div class="action-row">
-            <a class="button button-outline" href="gallery.html">View more photos</a>
-            <a class="button button-outline" href="rates-bookings.html">Make a reservation</a>
+            <a class="button button-outline" href="gallery.html" data-content="home.location.button.photos">View more photos</a>
+            <a class="button button-outline" href="rates-bookings.html" data-content="home.location.button.reserve">Make a reservation</a>
             <a class="button button-outline" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-              Follow on Instagram
+              <span data-content="home.location.button.instagram">Follow on Instagram</span>
             </a>
           </div>
         </div>
@@ -179,17 +179,17 @@
           </p>
           <div class="contact-grid">
             <address class="contact-card">
-              <strong>Contact us</strong>
-              <span>5 Bull Street, Plettenberg Bay, Western Cape, South Africa</span>
-              <a href="tel:+27842064504">+27 84 206 4504</a>
-              <span>Amy, SA · Lauren, UAE</span>
-              <a href="mailto:bookings@tremezzoplett.co.za">bookings@tremezzoplett.co.za</a>
+              <strong data-content="contact.card.heading">Contact us</strong>
+              <span data-content="contact.address">5 Bull Street, Plettenberg Bay, Western Cape, South Africa</span>
+              <a href="tel:+27842064504" data-content="contact.phone" data-content-href="tel">+27 84 206 4504</a>
+              <span data-content="contact.people">Amy, SA · Lauren, UAE</span>
+              <a href="mailto:bookings@tremezzoplett.co.za" data-content="contact.email" data-content-href="mailto">bookings@tremezzoplett.co.za</a>
             </address>
             <div class="social-card">
-              <strong>Let's get social</strong>
+              <strong data-content="contact.social.heading">Let's get social</strong>
               <a class="instagram-pill" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
                 <span aria-hidden="true">◎</span>
-                <span>Tag us in your photo</span>
+                <span data-content="contact.social.button">Tag us in your photo</span>
               </a>
             </div>
           </div>
@@ -198,8 +198,8 @@
     </main>
 
     <footer class="footer">
-      <span>Tremezzo Plett</span>
-      <a href="#top">Back to top</a>
+      <span data-content="footer.brand">Tremezzo Plett</span>
+      <a href="#top" data-content="footer.backToTop">Back to top</a>
     </footer>
 
     <script src="content.js"></script>

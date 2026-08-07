@@ -19,14 +19,14 @@
   <body data-page="gallery">
     <header class="site-header" aria-label="Tremezzo Plett">
       <nav class="nav">
-        <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
+        <a class="brand" href="index.html" aria-label="Tremezzo Plett home" data-content="site.brand">Tremezzo</a>
         <div class="nav-links" aria-label="Main navigation">
-          <a href="index.html#home">Home</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="rates-bookings.html">Rates</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#home" data-content="nav.home">Home</a>
+          <a href="gallery.html" data-content="nav.gallery">Gallery</a>
+          <a href="rates-bookings.html" data-content="nav.rates">Rates</a>
+          <a href="#contact" data-content="nav.contact">Contact</a>
         </div>
-        <a class="nav-cta" href="rates-bookings.html">Book</a>
+        <a class="nav-cta" href="rates-bookings.html" data-content="nav.book">Book</a>
       </nav>
     </header>
 
@@ -34,9 +34,9 @@
       <section class="sub-hero" aria-labelledby="page-title">
         <img src="assets/booking-bedroom-main.jpg" alt="Bedroom suite at Tremezzo Villa" />
         <div class="sub-hero-band">
-          <p class="eyebrow">Tremezzo</p>
-          <h1 id="page-title">Photo gallery</h1>
-          <p>Plettenberg Bay</p>
+          <p class="eyebrow" data-content="gallery.hero.eyebrow">Tremezzo</p>
+          <h1 id="page-title" data-content="gallery.hero.title">Photo gallery</h1>
+          <p data-content="gallery.hero.place">Plettenberg Bay</p>
         </div>
       </section>
 
@@ -44,48 +44,48 @@
         <div class="section-inner">
           <div class="gallery-heading">
             <h2 data-content="gallery.heading">Spaces for slow mornings, beach days and long summer evenings</h2>
-            <a class="button button-gold" href="rates-bookings.html">Make a reservation</a>
+            <a class="button button-gold" href="rates-bookings.html" data-content="gallery.button.reserve">Make a reservation</a>
           </div>
           <div class="masonry-gallery" aria-label="Tremezzo Plett photo gallery">
             <figure class="wide">
               <img src="assets/header-terrace.jpg" alt="Ocean-facing terrace with loungers" />
-              <figcaption>Ocean-facing terrace</figcaption>
+              <figcaption data-content="gallery.caption.1">Ocean-facing terrace</figcaption>
             </figure>
             <figure>
               <img src="assets/balcony-view.png" alt="Balcony table with sea views" />
-              <figcaption>Balcony views</figcaption>
+              <figcaption data-content="gallery.caption.2">Balcony views</figcaption>
             </figure>
             <figure>
               <img src="assets/booking-bedroom-main.jpg" alt="Bedroom suite with king bed" />
-              <figcaption>En-suite bedroom</figcaption>
+              <figcaption data-content="gallery.caption.3">En-suite bedroom</figcaption>
             </figure>
             <figure>
               <img src="assets/booking-bathroom-shower.jpg" alt="Bathroom vanity and shower with patterned tiles" />
-              <figcaption>En-suite bathroom</figcaption>
+              <figcaption data-content="gallery.caption.4">En-suite bathroom</figcaption>
             </figure>
             <figure class="tall">
               <img src="assets/beach-path.png" alt="Private stairs to the beach" />
-              <figcaption>Direct beach access</figcaption>
+              <figcaption data-content="gallery.caption.5">Direct beach access</figcaption>
             </figure>
             <figure>
               <img src="assets/pool.png" alt="Private enclosed pool courtyard" />
-              <figcaption>Private pool</figcaption>
+              <figcaption data-content="gallery.caption.6">Private pool</figcaption>
             </figure>
             <figure>
               <img src="assets/booking-bedroom-floral.jpg" alt="Bedroom with bedside lamps and floral cushions" />
-              <figcaption>Comfortable bedrooms</figcaption>
+              <figcaption data-content="gallery.caption.7">Comfortable bedrooms</figcaption>
             </figure>
             <figure>
               <img src="assets/booking-bathroom-bath.jpg" alt="En-suite bathroom with bath and patterned tile" />
-              <figcaption>Bath and shower suites</figcaption>
+              <figcaption data-content="gallery.caption.8">Bath and shower suites</figcaption>
             </figure>
             <figure>
               <img src="assets/hero.png" alt="Tree lights over the bay at dusk" />
-              <figcaption>Evening atmosphere</figcaption>
+              <figcaption data-content="gallery.caption.9">Evening atmosphere</figcaption>
             </figure>
             <figure class="wide">
               <img src="assets/booking-bedroom-twin.jpg" alt="Bedroom with shutters and twin-style layout" />
-              <figcaption>Flexible sleeping layouts</figcaption>
+              <figcaption data-content="gallery.caption.10">Flexible sleeping layouts</figcaption>
             </figure>
           </div>
         </div>
@@ -100,16 +100,16 @@
           </p>
           <div class="contact-grid">
             <address class="contact-card">
-              <strong>Contact us</strong>
-              <span>5 Bull Street, Plettenberg Bay, Western Cape, South Africa</span>
-              <a href="tel:+27842064504">+27 84 206 4504</a>
-              <span>Amy, SA · Lauren, UAE</span>
-              <a href="mailto:bookings@tremezzoplett.co.za">bookings@tremezzoplett.co.za</a>
+              <strong data-content="contact.card.heading">Contact us</strong>
+              <span data-content="contact.address">5 Bull Street, Plettenberg Bay, Western Cape, South Africa</span>
+              <a href="tel:+27842064504" data-content="contact.phone" data-content-href="tel">+27 84 206 4504</a>
+              <span data-content="contact.people">Amy, SA · Lauren, UAE</span>
+              <a href="mailto:bookings@tremezzoplett.co.za" data-content="contact.email" data-content-href="mailto">bookings@tremezzoplett.co.za</a>
             </address>
             <div class="social-card">
-              <strong>Let's get social</strong>
+              <strong data-content="contact.social.heading">Let's get social</strong>
               <a class="instagram-pill" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-                Tag us in your photos
+                <span data-content="contact.social.galleryButton">Tag us in your photos</span>
               </a>
             </div>
           </div>
@@ -118,8 +118,8 @@
     </main>
 
     <footer class="footer">
-      <span>Tremezzo Plett</span>
-      <a href="index.html">Home</a>
+      <span data-content="footer.brand">Tremezzo Plett</span>
+      <a href="index.html" data-content="nav.home">Home</a>
     </footer>
     <script src="content.js"></script>
   </body>

@@ -15,6 +15,32 @@
     node.innerHTML = items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   }
 
+  function applyMultiline(node, value) {
+    const lines = String(value || "")
+      .split(/\r?\n/)
+      .map((line) => escapeHtml(line.trim()))
+      .filter(Boolean);
+    if (!lines.length) return;
+    node.innerHTML = lines.join("<br />");
+  }
+
+  function applyAttribute(node, value) {
+    const attribute = node.dataset.contentAttr;
+    if (!attribute) return false;
+    node.setAttribute(attribute, value);
+    return true;
+  }
+
+  function applyHref(node, value) {
+    const hrefType = node.dataset.contentHref;
+    if (hrefType === "tel") {
+      node.setAttribute("href", `tel:${String(value).replace(/[^\d+]/g, "")}`);
+    }
+    if (hrefType === "mailto") {
+      node.setAttribute("href", `mailto:${String(value).trim()}`);
+    }
+  }
+
   function escapeHtml(value) {
     return String(value)
       .replaceAll("&", "&amp;")
@@ -34,8 +60,14 @@
         const key = node.dataset.content;
         const entry = content[key];
         if (!entry || !entry.value) return;
+        if (applyAttribute(node, entry.value)) {
+          return;
+        }
+        applyHref(node, entry.value);
         if (node.dataset.contentType === "list") {
           applyList(node, entry.value);
+        } else if (node.dataset.contentType === "multiline") {
+          applyMultiline(node, entry.value);
         } else {
           applyText(node, entry.value);
         }

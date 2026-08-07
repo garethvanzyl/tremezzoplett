@@ -20,14 +20,14 @@
   <body data-page="rates">
     <header class="site-header" aria-label="Tremezzo Plett">
       <nav class="nav">
-        <a class="brand" href="index.html" aria-label="Tremezzo Plett home">Tremezzo</a>
+        <a class="brand" href="index.html" aria-label="Tremezzo Plett home" data-content="site.brand">Tremezzo</a>
         <div class="nav-links" aria-label="Main navigation">
-          <a href="index.html#home">Home</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="rates-bookings.html">Rates</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#home" data-content="nav.home">Home</a>
+          <a href="gallery.html" data-content="nav.gallery">Gallery</a>
+          <a href="rates-bookings.html" data-content="nav.rates">Rates</a>
+          <a href="#contact" data-content="nav.contact">Contact</a>
         </div>
-        <a class="nav-cta" href="#contact">Book</a>
+        <a class="nav-cta" href="#contact" data-content="nav.book">Book</a>
       </nav>
     </header>
 
@@ -35,9 +35,9 @@
       <section class="sub-hero" aria-labelledby="page-title">
         <img src="assets/header-terrace.jpg" alt="Sunlit terrace loungers looking toward Central Beach" />
         <div class="sub-hero-band">
-          <p class="eyebrow">Tremezzo</p>
-          <h1 id="page-title">Rates &amp; bookings</h1>
-          <p>Plettenberg Bay</p>
+          <p class="eyebrow" data-content="rates.hero.eyebrow">Tremezzo</p>
+          <h1 id="page-title" data-content="rates.hero.title">Rates &amp; bookings</h1>
+          <p data-content="rates.hero.place">Plettenberg Bay</p>
         </div>
       </section>
 
@@ -55,28 +55,28 @@
         <div class="section-inner">
           <div class="rate-grid">
             <article class="rate-card">
-              <p class="season">Low season</p>
-              <h2>Autumn / winter</h2>
-              <p>1 May to 7 September</p>
-              <strong>R7 500</strong>
-              <span>per night*</span>
+              <p class="season" data-content="rates.low.season">Low season</p>
+              <h2 data-content="rates.low.title">Autumn / winter</h2>
+              <p data-content="rates.low.dates" data-content-type="multiline">1 May to 7 September</p>
+              <strong data-content="rates.low.price">R7 500</strong>
+              <span data-content="rates.low.unit">per night*</span>
             </article>
             <article class="rate-card">
-              <p class="season">Mid season</p>
-              <h2>Spring / summer</h2>
-              <p>8 September to 7 December<br />8 January to 31 April</p>
-              <strong>R14 000</strong>
-              <span>per night*</span>
+              <p class="season" data-content="rates.mid.season">Mid season</p>
+              <h2 data-content="rates.mid.title">Spring / summer</h2>
+              <p data-content="rates.mid.dates" data-content-type="multiline">8 September to 7 December<br />8 January to 31 April</p>
+              <strong data-content="rates.mid.price">R14 000</strong>
+              <span data-content="rates.mid.unit">per night*</span>
             </article>
             <article class="rate-card">
-              <p class="season">Peak season</p>
-              <h2>Summer</h2>
-              <p>8 December to 7 January</p>
-              <strong>R22 500</strong>
-              <span>per night</span>
+              <p class="season" data-content="rates.peak.season">Peak season</p>
+              <h2 data-content="rates.peak.title">Summer</h2>
+              <p data-content="rates.peak.dates" data-content-type="multiline">8 December to 7 January</p>
+              <strong data-content="rates.peak.price">R22 500</strong>
+              <span data-content="rates.peak.unit">per night</span>
             </article>
           </div>
-          <p class="rate-note">*Rates can vary according to length of stay.</p>
+          <p class="rate-note" data-content="rates.note">*Rates can vary according to length of stay.</p>
         </div>
       </section>
 
@@ -92,13 +92,13 @@
             </p>
           </div>
           <div class="booking-card">
-            <strong>Availability</strong>
+            <strong data-content="rates.availability.heading">Availability</strong>
             <div class="calendar-status" data-calendar-status>Loading availability...</div>
             <div class="booking-calendar" data-booking-calendar aria-label="Availability calendar"></div>
             <div class="calendar-legend" aria-label="Calendar legend">
-              <span><i class="legend-available"></i>Available</span>
-              <span><i class="legend-selected"></i>Selected</span>
-              <span><i class="legend-blocked"></i>Unavailable</span>
+              <span><i class="legend-available"></i><span data-content="rates.legend.available">Available</span></span>
+              <span><i class="legend-selected"></i><span data-content="rates.legend.selected">Selected</span></span>
+              <span><i class="legend-blocked"></i><span data-content="rates.legend.unavailable">Unavailable</span></span>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@
         <div class="section-inner">
           <div class="enquiry-layout">
             <div>
-              <h2 id="enquiry-title">Request your dates</h2>
+              <h2 id="enquiry-title" data-content="rates.enquiry.heading">Request your dates</h2>
               <p class="wide-text left-text" data-content="rates.enquiry.body">
                 Select your preferred arrival and departure dates, then send your details. This is
                 an enquiry, not an instant confirmed booking. The host will respond within 24 hours.
@@ -118,40 +118,40 @@
               <input class="hidden-field" name="company" type="text" tabindex="-1" autocomplete="off" />
               <div class="form-row two-fields">
                 <label>
-                  Arrival
+                  <span data-content="booking.form.arrival">Arrival</span>
                   <input name="arrivalDate" type="date" required data-arrival-date />
                 </label>
                 <label>
-                  Departure
+                  <span data-content="booking.form.departure">Departure</span>
                   <input name="departureDate" type="date" required data-departure-date />
                 </label>
               </div>
               <div class="form-row two-fields">
                 <label>
-                  Name
+                  <span data-content="booking.form.name">Name</span>
                   <input name="name" type="text" autocomplete="name" required />
                 </label>
                 <label>
-                  Phone
+                  <span data-content="booking.form.phone">Phone</span>
                   <input name="phone" type="tel" autocomplete="tel" required />
                 </label>
               </div>
               <div class="form-row two-fields">
                 <label>
-                  Email
+                  <span data-content="booking.form.email">Email</span>
                   <input name="email" type="email" autocomplete="email" required />
                 </label>
                 <label>
-                  Guests
+                  <span data-content="booking.form.guests">Guests</span>
                   <input name="guests" type="number" min="1" max="10" value="2" required />
                 </label>
               </div>
               <label>
-                Message
-                <textarea name="message" rows="5" placeholder="Tell us anything useful about your stay."></textarea>
+                <span data-content="booking.form.message">Message</span>
+                <textarea name="message" rows="5" placeholder="Tell us anything useful about your stay." data-content="booking.form.messagePlaceholder" data-content-attr="placeholder"></textarea>
               </label>
               <div class="turnstile-holder" data-turnstile></div>
-              <button class="button button-gold" type="submit">Send request</button>
+              <button class="button button-gold" type="submit" data-content="booking.form.submit">Send request</button>
               <p class="form-status" data-form-status role="status"></p>
             </form>
           </div>
@@ -160,8 +160,8 @@
     </main>
 
     <footer class="footer">
-      <span>Tremezzo Plett</span>
-      <a href="index.html">Home</a>
+      <span data-content="footer.brand">Tremezzo Plett</span>
+      <a href="index.html" data-content="nav.home">Home</a>
     </footer>
     <script src="content.js"></script>
     <script src="booking.js"></script>
