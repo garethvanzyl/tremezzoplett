@@ -250,3 +250,27 @@ on conflict (key) do update set
   value = excluded.value,
   sort_order = excluded.sort_order,
   updated_at = now();
+
+insert into public.content_blocks (key, page, label, kind, value, sort_order) values
+  ('home.intro.kicker', 'home', 'Intro kicker', 'text', 'Where Garden Route holidays are made', 10),
+  ('home.intro.heading', 'home', 'Intro heading', 'text', 'Your seaside escape in Plettenberg Bay', 20),
+  ('home.intro.body', 'home', 'Intro body', 'textarea', 'Welcome to Tremezzo, a spacious beachfront villa in Plettenberg Bay - one of South Africa''s most celebrated coastal towns, set along the iconic Garden Route in the Western Cape. With direct beach access, sweeping sea views and space for the whole family to relax and unwind, it''s built for long, easy days together.', 30),
+  ('home.rest.heading', 'home', 'Rest section heading', 'text', 'A home designed for rest, natural beauty & togetherness', 40),
+  ('home.location.button.instagram', 'home', 'Location Instagram button', 'text', 'Follow Tremezzo Villa on Instagram', 93),
+  ('contact.heading', 'contact', 'Contact heading', 'text', 'Reserve your stay at Tremezzo Plett', 500),
+  ('contact.card.heading', 'contact', 'Contact card heading', 'text', 'Contact us', 530),
+  ('contact.address', 'contact', 'Address', 'textarea', '5 Bull Street, Plettenberg Bay, Western Cape, South Africa', 540),
+  ('contact.whatsapp.heading', 'contact', 'WhatsApp heading', 'text', 'WhatsApp', 545),
+  ('contact.whatsapp.amy', 'contact', 'Amy WhatsApp', 'text', 'Amy: +27 84 206 4504 (South Africa)', 550),
+  ('contact.whatsapp.lauren', 'contact', 'Lauren WhatsApp', 'text', 'Lauren: +971 55 118 5233 (UAE)', 555),
+  ('contact.email', 'contact', 'Email address', 'text', 'bookings@tremezzoplett.co.za', 570),
+  ('contact.social.heading', 'contact', 'Social heading', 'text', 'Follow Tremezzo Villa on Instagram', 580),
+  ('contact.social.button', 'contact', 'Homepage social button', 'text', '@tremezzoplett', 590),
+  ('contact.social.galleryButton', 'contact', 'Gallery social button', 'text', '@tremezzoplett', 600)
+on conflict (key) do update set
+  page = excluded.page,
+  label = excluded.label,
+  kind = excluded.kind,
+  value = excluded.value,
+  sort_order = excluded.sort_order,
+  updated_at = now();

@@ -59,7 +59,7 @@
       editableNodes.forEach((node) => {
         const key = node.dataset.content;
         const entry = content[key];
-        if (!entry || !entry.value) return;
+        if (!entry || typeof entry.value !== "string") return;
         if (applyAttribute(node, entry.value)) {
           return;
         }
