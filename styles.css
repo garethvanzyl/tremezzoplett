@@ -307,8 +307,8 @@ h2 {
   aspect-ratio: 0.86;
 }
 
-.amenities-kicker {
-  margin-bottom: 24px;
+.copy-block .amenities-kicker {
+  margin-bottom: 32px;
 }
 
 .feature-list {
