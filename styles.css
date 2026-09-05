@@ -307,6 +307,10 @@ h2 {
   aspect-ratio: 0.86;
 }
 
+.amenities-kicker {
+  margin-bottom: 24px;
+}
+
 .feature-list {
   margin: 0;
   padding-left: 1.15em;

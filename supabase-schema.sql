@@ -71,7 +71,7 @@ insert into public.content_blocks (key, page, label, kind, value, sort_order) va
   ('home.intro.body', 'home', 'Intro body', 'textarea', 'Welcome to Tremezzo Villa, a spacious beachfront home in the heart of Central Beach. This recently renovated 735mÂ² retreat offers direct beach access, sweeping sea views, generous living areas and refined comfort for relaxed family holidays.', 30),
   ('home.rest.heading', 'home', 'Rest section heading', 'text', 'A home designed for rest, beauty & togetherness', 40),
   ('home.rest.body', 'home', 'Rest section body', 'textarea', 'Tremezzo sleeps up to 10 guests across five stylish en-suite bedrooms, with king-size beds or twin singles. The home includes two fully equipped kitchens, open-plan living and dining spaces, indoor and outdoor fireplaces, a games room, Wi-Fi, DSTV, gas braai and backup inverter power.', 50),
-  ('home.amenities.kicker', 'home', 'Amenities heading', 'text', 'At Tremezzo Plett, you can enjoy', 60),
+  ('home.amenities.kicker', 'home', 'Amenities heading', 'text', 'At Tremezzo Plett, you can enjoy...', 60),
   ('home.amenities.list', 'home', 'Amenities list', 'list', 'Direct beach access to a beautiful cove
 Five en-suite bedrooms with king-size beds or twin singles
 Sea-facing main bedroom with enclosed glass patio
@@ -83,7 +83,7 @@ Wi-Fi, DSTV, gas braai and inverter battery back-up power
 A fully secured property
 A staff-accommodation suite for a nanny or chef', 70),
   ('home.photo.1.caption', 'home', 'Pool photo caption', 'textarea', 'Enjoy a splash in the private pool after a hot day at the beach.', 75),
-  ('home.photo.2.caption', 'home', 'Bathroom photo caption', 'textarea', 'Fresh en-suite bathrooms with patterned tile, generous vanities and views toward the sea.', 76),
+  ('home.photo.2.caption', 'home', 'Ocean view photo caption', 'textarea', 'Sweeping ocean and mountain views from above Central Beach.', 76),
   ('home.location.heading', 'home', 'Location heading', 'text', 'Situated on the most desired stretch of Central Beach', 80),
   ('home.location.body', 'home', 'Location body', 'textarea', 'Tremezzo Plett offers unrivalled access to Central Beach, with sweeping views of the Indian Ocean and Outeniqua Mountains. Walk out the door and onto the sand, then explore coastal paths, nature, restaurants and the best of Plettenberg Bay from your doorstep.', 90),
   ('home.location.button.photos', 'home', 'Location photos button', 'text', 'View more photos', 91),
