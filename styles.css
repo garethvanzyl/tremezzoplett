@@ -26,6 +26,7 @@ body {
   font-family: "Nunito Sans", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.55;
+  overflow-x: hidden;
 }
 
 img {
@@ -151,9 +152,11 @@ h2 {
   font-size: 13px;
 }
 
+.hero-media,
 .hero-image {
   position: absolute;
   inset: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -678,6 +681,7 @@ cite {
   font-size: 12px;
   font-weight: 900;
   cursor: pointer;
+  min-height: 34px;
 }
 
 .calendar-day:hover {
@@ -821,6 +825,12 @@ textarea {
 
 .admin-section p {
   font-weight: 800;
+}
+
+.admin-help {
+  padding: 16px 18px;
+  border-left: 4px solid var(--gold);
+  background: rgba(255, 250, 244, 0.58);
 }
 
 .admin-login,
@@ -1071,6 +1081,7 @@ textarea {
 
   .nav {
     grid-template-columns: 1fr auto;
+    min-height: 62px;
     padding: 0 18px;
   }
 
@@ -1079,12 +1090,13 @@ textarea {
   }
 
   .hero {
-    min-height: 640px;
+    min-height: 560px;
   }
 
   .hero-panel {
     grid-template-columns: 1fr;
-    padding: 22px 18px 28px;
+    margin-top: 0;
+    padding: 20px 18px 26px;
   }
 
   .eyebrow,
@@ -1100,7 +1112,7 @@ textarea {
   }
 
   .section {
-    padding: 58px 20px;
+    padding: 54px 20px;
   }
 
   .section-grid,
@@ -1118,10 +1130,11 @@ textarea {
   }
 
   .sub-hero {
-    min-height: 620px;
+    min-height: 500px;
   }
 
   .sub-hero-band {
+    padding: 24px 20px;
     text-align: left;
   }
 
@@ -1154,6 +1167,19 @@ textarea {
     padding: 22px;
   }
 
+  .booking-card {
+    min-width: 0;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    min-height: 40px;
+    font-size: 13px;
+  }
+
   .rate-card {
     min-height: 320px;
   }
@@ -1177,6 +1203,10 @@ textarea {
 }
 
 @media (max-width: 520px) {
+  .site-header {
+    position: sticky;
+  }
+
   .brand {
     font-size: 25px;
   }
@@ -1186,11 +1216,76 @@ textarea {
   }
 
   h2 {
-    font-size: 42px;
+    font-size: 38px;
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: clamp(58px, 19vw, 82px);
   }
 
   .kicker {
     font-size: 23px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-panel {
+    padding: 18px 16px 24px;
+  }
+
+  .hero-place {
+    font-size: 30px;
+  }
+
+  .section {
+    padding: 46px 16px;
+  }
+
+  .sub-hero {
+    min-height: 420px;
+  }
+
+  .sub-hero-band h1 {
+    font-size: 54px;
+  }
+
+  .sub-hero-band p {
+    font-size: 26px;
+  }
+
+  .copy-block,
+  .copy-block p,
+  .wide-text {
+    max-width: none;
+  }
+
+  .photo-offset {
+    transform: none;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .reviews-content {
+    width: min(100% - 32px, 1180px);
+    padding: 56px 0;
+  }
+
+  .review-grid {
+    gap: 24px;
+  }
+
+  .calendar-day-name {
+    font-size: 9px;
+  }
+
+  .calendar-day {
+    min-height: 38px;
+    font-size: 12px;
   }
 
   .button {

@@ -209,7 +209,7 @@
         body: JSON.stringify(payload),
       });
       blockForm.reset();
-      setStatus("Blocked dates added.");
+      setStatus("Blocked dates added. They now show as unavailable on the public booking calendar.");
       await loadBlocks();
     } catch (error) {
       setStatus(error.message, true);

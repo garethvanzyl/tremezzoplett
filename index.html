@@ -32,7 +32,18 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="assets/home-hero-terrace.jpg" alt="Sunlit terrace loungers overlooking the beach" />
+        <video
+          class="hero-media"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/home-hero-terrace.jpg"
+          aria-label="Tremezzo Plett beachfront terrace and sea views"
+        >
+          <source src="assets/tremezzo-hero-video.mp4" type="video/mp4" />
+        </video>
         <div class="hero-panel">
           <p class="eyebrow" data-content="home.hero.eyebrow">Welcome to</p>
           <h1 id="hero-title" data-content="home.hero.title">Tremezzo</h1>
