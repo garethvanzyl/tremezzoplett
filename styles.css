@@ -100,7 +100,7 @@ h2 {
 
 .hero {
   position: relative;
-  min-height: 74vh;
+  min-height: 64vh;
   display: grid;
   align-items: end;
   overflow: hidden;
@@ -1090,7 +1090,7 @@ textarea {
   }
 
   .hero {
-    min-height: 560px;
+    min-height: 460px;
   }
 
   .hero-panel {
@@ -1229,7 +1229,7 @@ textarea {
   }
 
   .hero {
-    min-height: 500px;
+    min-height: 420px;
   }
 
   .hero-panel {
