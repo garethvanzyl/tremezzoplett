@@ -94,19 +94,25 @@
           <div class="booking-card">
             <strong data-content="rates.availability.heading">Availability</strong>
             <div class="calendar-status" data-calendar-status>Loading availability...</div>
+            <div class="calendar-toolbar" aria-label="Browse availability">
+              <button type="button" data-calendar-prev aria-label="Previous month" title="Previous month" disabled>&larr;</button>
+              <span class="calendar-range" data-calendar-range aria-live="polite"></span>
+              <button type="button" data-calendar-next aria-label="Next month" title="Next month">&rarr;</button>
+            </div>
             <div class="booking-calendar" data-booking-calendar aria-label="Availability calendar"></div>
             <div class="calendar-legend" aria-label="Calendar legend">
               <span><i class="legend-available"></i><span data-content="rates.legend.available">Available</span></span>
               <span><i class="legend-selected"></i><span data-content="rates.legend.selected">Selected</span></span>
               <span><i class="legend-blocked"></i><span data-content="rates.legend.unavailable">Unavailable</span></span>
             </div>
+            <a class="button button-small" href="#enquiry">Request selected dates</a>
           </div>
         </div>
       </section>
 
       <section class="section section-blue enquiry-section" aria-labelledby="enquiry-title">
         <div class="section-inner">
-          <div class="enquiry-layout">
+          <div class="enquiry-layout" id="enquiry">
             <div>
               <h2 id="enquiry-title" data-content="rates.enquiry.heading">Request your dates</h2>
               <p class="wide-text left-text" data-content="rates.enquiry.body">

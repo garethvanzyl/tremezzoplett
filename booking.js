@@ -11,6 +11,7 @@
   const monthNames = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric" });
   const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const state = {
+    monthOffset: 0,
     blockedRanges: [],
     blockedDates: new Set(),
     selectedStart: "",
@@ -92,6 +93,9 @@
       setStatus("");
     }
     updateInputs();
+    setCalendarStatus(state.selectedEnd
+      ? `Selected: ${state.selectedStart} to ${state.selectedEnd}`
+      : "Arrival selected. Choose your departure date.");
     renderCalendar();
   }
 
@@ -125,18 +129,34 @@
       if (blocked) classes.push("is-blocked");
       if (isSelected(date)) classes.push("is-selected");
       if (disabled) classes.push("is-disabled");
-      html += `<button type="button" class="${classes.join(" ")}" data-date="${date}" ${disabled ? "disabled" : ""}>${day}</button>`;
+      html += `<button type="button" class="${classes.join(" ")}" data-date="${date}" aria-label="${day} ${monthNames.format(display)}${blocked ? ", unavailable" : ""}" aria-pressed="${isSelected(date)}" ${disabled ? "disabled" : ""}>${day}</button>`;
     }
     html += "</div></article>";
     return html;
   }
 
   function renderCalendar() {
-    calendarEl.innerHTML = renderMonth(0) + renderMonth(1);
+    const focusedDate = document.activeElement?.dataset.date;
+    calendarEl.innerHTML = renderMonth(state.monthOffset) + renderMonth(state.monthOffset + 1);
+    const now = new Date();
+    const first = new Date(now.getFullYear(), now.getMonth() + state.monthOffset, 1);
+    const last = new Date(now.getFullYear(), now.getMonth() + state.monthOffset + 1, 1);
+    document.querySelector("[data-calendar-range]").textContent = `${monthNames.format(first)} - ${monthNames.format(last)}`;
+    document.querySelector("[data-calendar-prev]").disabled = state.monthOffset === 0;
     calendarEl.querySelectorAll("[data-date]").forEach((button) => {
       button.addEventListener("click", () => selectDate(button.dataset.date));
     });
+    if (focusedDate) calendarEl.querySelector(`[data-date="${focusedDate}"]`)?.focus({ preventScroll: true });
   }
+
+  document.querySelector("[data-calendar-prev]").addEventListener("click", () => {
+    state.monthOffset = Math.max(0, state.monthOffset - 1);
+    renderCalendar();
+  });
+  document.querySelector("[data-calendar-next]").addEventListener("click", () => {
+    state.monthOffset += 1;
+    renderCalendar();
+  });
 
   async function loadAvailability() {
     try {
@@ -175,6 +195,15 @@
         if (!window.turnstile || state.turnstileWidgetId !== null) return;
         state.turnstileWidgetId = window.turnstile.render(turnstileEl, {
           sitekey: data.turnstileSiteKey,
+          size: "flexible",
+          "error-callback": () => {
+            setStatus("The anti-spam check could not load. Please refresh or email us to request your dates.", true);
+            const emailLink = document.createElement("a");
+            emailLink.href = "mailto:bookings@tremezzoplett.co.za";
+            emailLink.textContent = " bookings@tremezzoplett.co.za";
+            formStatus.append(emailLink);
+          },
+          callback: () => setStatus(""),
         });
       };
       if (window.turnstile) render();
